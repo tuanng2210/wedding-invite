@@ -1,113 +1,164 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Head from "next/head";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export default function Home() {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              pages/index.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+    <>
+      <Head>
+        <title>Tuan & An Wedding</title>
+        <meta name="description" content="You're invited to our special day!" />
+      </Head>
+      <div className="bg-[#f7f7ef] text-gray-900 font-sans scroll-smooth">
+        {/* Header */}
+        <header className="text-center py-8 border-b">
+          <h1 className="text-4xl font-script">Tuan & An</h1>
+          <p className="uppercase tracking-widest mt-2">Wedding Invitation</p>
+          <nav className="mt-4 flex flex-wrap justify-center gap-4 text-sm uppercase">
+            <a href="#home">Home</a>
+            <a href="#invitation">Invitation</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#venue">Venue</a>
+            <a
+              href="https://rsvp-frontend-dq1dsra7l-tuanng2210s-projects.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              RSVP
+            </a>
+          </nav>
+        </header>
+
+        <section
+          id="home"
+          className="relative w-full h-[500px] bg-[#f7f7ef] overflow-hidden"
+        >
+          <img
+            src="/hero.avif"
+            alt="Save the Date"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white bg-black/30">
+            <h2 className="text-lg tracking-[0.3em] font-light uppercase mb-4">
+              Save the Date
+            </h2>
+            <div className="bg-white text-gray-800 px-6 py-2 rounded-sm text-sm tracking-widest shadow">
+              07th February 2026
+            </div>
+          </div>
+        </section>
+
+        {/* Invitation */}
+        <section
+          id="invitation"
+          className="text-center py-12 px-6"
+          data-aos="fade-up"
+        >
+          <h2 className="text-3xl sm:text-4xl font-script mb-4">
+            Welcome to our wedding invitation!
+          </h2>
+          <p className="max-w-2xl mx-auto leading-relaxed">
+            We're so excited to share this special moment with you. Please
+            explore our site to find all the details and RSVP. Let’s celebrate
+            love, laughter, and happily ever after!
+          </p>
+          <p className="mt-6 italic">With love,</p>
+          <p className="font-script text-lg">Tuan & An</p>
+        </section>
+
+        {/* Invitation Image Trio */}
+        <section className="py-8 px-6 bg-[#f7f7ef]" data-aos="fade-up">
+          <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <img
+              src="/gallery1.avif"
+              alt="Gallery 1"
+              className="rounded shadow object-cover w-full"
             />
-            Deploy now
-          </a>
+            <img
+              src="/gallery2.avif"
+              alt="Gallery 2"
+              className="rounded shadow object-cover w-full"
+            />
+            <img
+              src="/gallery3.avif"
+              alt="Gallery 3"
+              className="rounded shadow object-cover w-full"
+            />
+          </div>
+        </section>
+
+        {/* Venue */}
+        {/* Ceremony Section */}
+        <section id="venue" className="bg-[#f7f7ef] py-10 px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl tracking-[0.2em] font-serif uppercase mb-10">
+              Ceremony
+            </h2>
+
+            <div className="flex justify-center">
+              <img
+                src="/nikko.jpg"
+                alt="Origami Ballroom"
+                className="w-full max-w-md sm:max-w-lg rounded shadow-lg object-cover"
+              />
+            </div>
+
+            <div className="mt-8 text-center text-gray-700 space-y-4 max-w-xl mx-auto">
+              <h3 className="text-lg font-semibold">Origami Ballroom</h3>
+              <p className="italic">
+                3rd Floor, Hotel Nikko Saigon
+                <br />
+                235 Đ. Nguyễn Văn Cừ, Phường Nguyễn Cư Trinh,
+                <br />
+                Quận 1, Hồ Chí Minh, Vietnam
+              </p>
+              <p>
+                Our journey begins in this stunning setting, where we will
+                exchange vows surrounded by love and happiness. Please arrive a
+                little early to find your seat and soak in the moment with us!
+              </p>
+              <p className="font-semibold mt-2">Start time – 7:00 PM</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Schedule */}
+        <section
+          id="schedule"
+          className="bg-[#e6e6d9] py-12 text-center"
+          data-aos="fade-up"
+        >
+          <h2 className="text-2xl font-script mb-2">Wedding Day Timeline</h2>
+          <p className="uppercase tracking-widest text-sm">
+            07th February 2026 / update later
+          </p>
+        </section>
+
+        {/* RSVP */}
+        <section
+          id="rsvp"
+          className="text-center py-12 px-6"
+          data-aos="fade-up"
+        >
+          <h2 className="text-2xl font-serif uppercase mb-4">RSVP</h2>
+          <p className="max-w-xl mx-auto mb-6">
+            Please confirm your attendance using the form below.
+          </p>
           <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
+            href="https://rsvp-frontend-dq1dsra7l-tuanng2210s-projects.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block bg-black text-white px-6 py-3 rounded-full text-sm uppercase tracking-widest hover:bg-gray-800 transition"
           >
-            Read our docs
+            RSVP Now
           </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </section>
+      </div>
+    </>
   );
 }

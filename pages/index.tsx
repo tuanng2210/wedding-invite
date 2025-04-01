@@ -39,7 +39,7 @@ export default function Home() {
           className="relative w-full h-[500px] bg-[#f7f7ef] overflow-hidden"
         >
           <img
-            src="/hero.avif"
+            src="/kiss.jpg"
             alt="Save the Date"
             className="w-full h-full object-cover"
           />

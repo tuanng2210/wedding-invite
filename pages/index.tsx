@@ -25,7 +25,7 @@ export default function Home() {
             <a href="#schedule">Schedule</a>
             <a href="#venue">Venue</a>
             <a
-              href="https://rsvp-frontend-dq1dsra7l-tuanng2210s-projects.vercel.app/"
+              href="https://rsvp-frontend-kohl.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -150,7 +150,7 @@ export default function Home() {
             Please confirm your attendance using the form below.
           </p>
           <a
-            href="https://rsvp-frontend-dq1dsra7l-tuanng2210s-projects.vercel.app/"
+            href="https://rsvp-frontend-kohl.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-black text-white px-6 py-3 rounded-full text-sm uppercase tracking-widest hover:bg-gray-800 transition"
